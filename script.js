@@ -271,6 +271,6 @@ if (currentYear > 2026) {
   const footerBottom = document.querySelector(".footer-bottom p");
 
   if (footerBottom) {
-    footerBottom.textContent = `© ${currentYear} EcoMapa. Projeto acadêmico desenvolvido para fins educacionais.`;
+    footerBottom.textContent = `© ${currentYear} GeoImpact. Projeto acadêmico desenvolvido para fins educacionais.`;
   }
 }
