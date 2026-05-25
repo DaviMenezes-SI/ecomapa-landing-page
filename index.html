@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>EcoMapa | ONGs ambientais perto de você</title>
+
+  <meta 
+    name="description" 
+    content="EcoMapa é uma plataforma digital com geolocalização para conectar cidadãos a ONGs ambientais, campanhas, pontos de coleta e iniciativas sustentáveis próximas."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" 
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-leaf">🌱</div>
+    <p>Carregando EcoMapa...</p>
+  </div>
+
+  <header class="header" id="header">
+    <nav class="navbar container">
+      <a href="#inicio" class="logo" aria-label="EcoMapa">
+        <span class="logo-icon">🌿</span>
+        <span>EcoMapa</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#inicio" class="nav-link active">Início</a></li>
+        <li><a href="#problema" class="nav-link">Problema</a></li>
+        <li><a href="#solucao" class="nav-link">Solução</a></li>
+        <li><a href="#funcionalidades" class="nav-link">Funcionalidades</a></li>
+        <li><a href="#impacto" class="nav-link">Impacto</a></li>
+        <li><a href="#projeto" class="nav-link">Projeto</a></li>
+      </ul>
+
+      <a href="#contato" class="nav-button">Conhecer projeto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="inicio">
+      <div class="hero-bg-shape shape-one"></div>
+      <div class="hero-bg-shape shape-two"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Plataforma ambiental com geolocalização
+          </span>
+
+          <h1>
+            Encontre ONGs ambientais perto de você e transforme sua vontade de ajudar em ação.
+          </h1>
+
+          <p class="hero-description">
+            O EcoMapa conecta cidadãos a ONGs ambientais, pontos de coleta,
+            campanhas sustentáveis e oportunidades de voluntariado próximas da sua localização.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#funcionalidades" class="btn btn-primary">
+              Explorar funcionalidades
+              <span>→</span>
+            </a>
+
+            <a href="#solucao" class="btn btn-secondary">
+              Entender a solução
+            </a>
+          </div>
+
+          <div class="hero-highlights">
+            <div>
+              <strong>Mapa</strong>
+              <span>interativo</span>
+            </div>
+            <div>
+              <strong>ONGs</strong>
+              <span>locais</span>
+            </div>
+            <div>
+              <strong>Ações</strong>
+              <span>sustentáveis</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="phone-card">
+            <div class="phone-top">
+              <div>
+                <span class="phone-label">EcoMapa</span>
+                <h3>ONGs próximas</h3>
+              </div>
+
+              <button class="location-btn" id="locationBtn">
+                📍 Usar localização
+              </button>
+            </div>
+
+            <div class="search-box">
+              <span>🔎</span>
+              <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Buscar por região ou causa"
+              />
+            </div>
+
+            <div class="map-area">
+              <img 
+                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" 
+                alt="Mapa ilustrativo de localização" 
+              />
+
+              <button class="map-pin pin-one" data-ong="Verde Vida">🌱</button>
+              <button class="map-pin pin-two" data-ong="Recicla+">♻️</button>
+              <button class="map-pin pin-three" data-ong="Água Limpa">💧</button>
+            </div>
+
+            <div class="ong-list" id="ongList">
+              <article class="ong-item" data-name="verde vida reflorestamento">
+                <div class="ong-icon">🌳</div>
+                <div>
+                  <h4>ONG Verde Vida</h4>
+                  <p>Reflorestamento e educação ambiental</p>
+                </div>
+                <span>1,2 km</span>
+              </article>
+
+              <article class="ong-item" data-name="recicla coleta reciclaveis">
+                <div class="ong-icon">♻️</div>
+                <div>
+                  <h4>Instituto Recicla+</h4>
+                  <p>Coleta seletiva e reciclagem</p>
+                </div>
+                <span>2,8 km</span>
+              </article>
+
+              <article class="ong-item" data-name="agua limpa rios nascentes">
+                <div class="ong-icon">💧</div>
+                <div>
+                  <h4>Projeto Água Limpa</h4>
+                  <p>Preservação de rios e nascentes</p>
+                </div>
+                <span>4,1 km</span>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section problem-section" id="problema">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-tag">O problema</span>
+          <h2>Muita gente quer ajudar, mas não sabe por onde começar.</h2>
+          <p>
+            Pessoas interessadas em sustentabilidade muitas vezes têm dificuldade
+            para encontrar ONGs, pontos de coleta, campanhas ambientais ou formas
+            confiáveis de colaborar perto de onde vivem.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="problem-card reveal">
+            <span>🔍</span>
+            <h3>Falta de informação acessível</h3>
+            <p>As iniciativas ambientais existem, mas nem sempre estão reunidas em um lugar fácil de encontrar.</p>
+          </article>
+
+          <article class="problem-card reveal">
+            <span>📉</span>
+            <h3>Baixa visibilidade das ONGs</h3>
+            <p>Muitas organizações precisam de apoio, mas têm dificuldade para alcançar voluntários e doadores.</p>
+          </article>
+
+          <article class="problem-card reveal">
+            <span>🗑️</span>
+            <h3>Descarte incorreto</h3>
+            <p>A ausência de pontos de coleta visíveis contribui para práticas inadequadas de descarte.</p>
+          </article>
+
+          <article class="problem-card reveal">
+            <span>🤝</span>
+            <h3>Pouco engajamento local</h3>
+            <p>Sem proximidade e informação clara, a participação da população acaba sendo menor.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section solution-section" id="solucao">
+      <div class="container solution-grid">
+        <div class="solution-image reveal">
+          <img 
+            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80" 
+            alt="Pessoas cuidando de plantas em ação ambiental"
+          />
+
+          <div class="floating-card">
+            <strong>+ conexão local</strong>
+            <span>entre cidadãos e causas ambientais</span>
+          </div>
+        </div>
+
+        <div class="solution-content reveal">
+          <span class="section-tag">A solução</span>
+          <h2>Uma ponte digital entre cidadãos e ONGs ambientais.</h2>
+          <p>
+            O EcoMapa centraliza informações sobre iniciativas sustentáveis em uma plataforma
+            com mapa interativo, permitindo que o usuário encontre organizações próximas,
+            conheça suas causas e descubra como apoiar.
+          </p>
+
+          <div class="solution-steps">
+            <div>
+              <span>01</span>
+              <h3>Localize</h3>
+              <p>Encontre ONGs e pontos sustentáveis próximos usando geolocalização.</p>
+            </div>
+
+            <div>
+              <span>02</span>
+              <h3>Conheça</h3>
+              <p>Veja campanhas, necessidades atuais, contatos e links das instituições.</p>
+            </div>
+
+            <div>
+              <span>03</span>
+              <h3>Apoie</h3>
+              <p>Participe como voluntário, doe ou colabore com ações ambientais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features-section" id="funcionalidades">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-tag">Funcionalidades</span>
+          <h2>Recursos pensados para facilitar a ação sustentável.</h2>
+          <p>
+            A plataforma foi pensada para unir tecnologia, usabilidade e impacto social.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon">🗺️</div>
+            <h3>Mapa interativo</h3>
+            <p>Visualização de ONGs, campanhas e pontos de coleta por localização.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">📍</div>
+            <h3>Busca por proximidade</h3>
+            <p>Identificação de instituições próximas à localização atual do usuário.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">🏙️</div>
+            <h3>Busca por região</h3>
+            <p>Pesquisa manual por cidade, bairro ou área de interesse.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">🏛️</div>
+            <h3>Perfil das ONGs</h3>
+            <p>Página com objetivo da instituição, contatos, campanhas e links externos.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">💚</div>
+            <h3>Campanhas e doações</h3>
+            <p>Espaço para divulgar ações, arrecadações e necessidades das ONGs.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">🙋</div>
+            <h3>Voluntariado</h3>
+            <p>Canal para aproximar pessoas interessadas de organizações que precisam de apoio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section impact-section" id="impacto">
+      <div class="container impact-grid">
+        <div class="impact-content reveal">
+          <span class="section-tag">Impacto</span>
+          <h2>Tecnologia a favor da sustentabilidade e do engajamento social.</h2>
+          <p>
+            O EcoMapa tem potencial para fortalecer o terceiro setor, ampliar a visibilidade
+            de ONGs ambientais e estimular pequenas ações que geram impactos positivos
+            na comunidade.
+          </p>
+
+          <a href="#projeto" class="btn btn-light">Ver detalhes do projeto</a>
+        </div>
+
+        <div class="impact-stats reveal">
+          <div class="stat-card">
+            <strong data-counter="100">0</strong>
+            <span>% digital</span>
+            <p>Ambiente online acessível e intuitivo.</p>
+          </div>
+
+          <div class="stat-card">
+            <strong data-counter="3">0</strong>
+            <span>formas de apoio</span>
+            <p>Doações, voluntariado e participação em campanhas.</p>
+          </div>
+
+          <div class="stat-card">
+            <strong data-counter="6">0</strong>
+            <span>funcionalidades</span>
+            <p>Recursos principais para conectar pessoas e ONGs.</p>
+          </div>
+
+          <div class="stat-card">
+            <strong data-counter="1">0</strong>
+            <span>propósito</span>
+            <p>Transformar intenção em ação ambiental.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section project-section" id="projeto">
+      <div class="container project-card reveal">
+        <div>
+          <span class="section-tag">Projeto acadêmico</span>
+          <h2>Sobre o EcoMapa</h2>
+          <p>
+            O EcoMapa é uma proposta acadêmica voltada ao desenvolvimento de uma
+            plataforma digital baseada em geolocalização. O objetivo é conectar cidadãos
+            a ONGs ambientais locais, facilitando o acesso a iniciativas sustentáveis,
+            campanhas, pontos de coleta e formas de contribuição.
+          </p>
+        </div>
+
+        <div class="project-info">
+          <div>
+            <span>Instituição</span>
+            <strong>Universidade Paulista — UNIP</strong>
+          </div>
+
+          <div>
+            <span>Área</span>
+            <strong>Ciência da Computação / Sistemas de Informação</strong>
+          </div>
+
+          <div>
+            <span>Disciplina</span>
+            <strong>Projetos e Desenvolvimento I</strong>
+          </div>
+
+          <div>
+            <span>Proposta</span>
+            <strong>Landing page do ambiente digital proposto</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contato">
+      <div class="container contact-grid">
+        <div class="contact-content reveal">
+          <span class="section-tag">Comece agora</span>
+          <h2>Pronto para encontrar uma causa ambiental perto de você?</h2>
+          <p>
+            Acesse o EcoMapa, descubra iniciativas próximas e veja como pequenas ações
+            podem contribuir para um futuro mais sustentável.
+          </p>
+
+          <div class="contact-list">
+            <div>
+              <span>🌱</span>
+              <p>Encontre ONGs ambientais locais</p>
+            </div>
+
+            <div>
+              <span>♻️</span>
+              <p>Localize pontos de coleta e campanhas</p>
+            </div>
+
+            <div>
+              <span>🤝</span>
+              <p>Conecte-se com oportunidades de voluntariado</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <h3>Receba novidades do projeto</h3>
+
+          <label for="name">Nome</label>
+          <input type="text" id="name" placeholder="Digite seu nome" required />
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="Digite seu e-mail" required />
+
+          <label for="interest">Interesse</label>
+          <select id="interest" required>
+            <option value="">Selecione uma opção</option>
+            <option value="voluntariado">Quero ser voluntário</option>
+            <option value="doacao">Quero apoiar campanhas</option>
+            <option value="ong">Represento uma ONG</option>
+            <option value="projeto">Quero conhecer o projeto</option>
+          </select>
+
+          <button type="submit" class="btn btn-primary">
+            Enviar interesse
+            <span>→</span>
+          </button>
+
+          <p class="form-note">
+            Formulário demonstrativo para apresentação acadêmica.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#inicio" class="logo footer-logo">
+          <span class="logo-icon">🌿</span>
+          <span>EcoMapa</span>
+        </a>
+
+        <p>
+          Conectando pessoas a ONGs ambientais, campanhas e iniciativas sustentáveis locais.
+        </p>
+      </div>
+
+      <div>
+        <h4>Navegação</h4>
+        <a href="#problema">Problema</a>
+        <a href="#solucao">Solução</a>
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#impacto">Impacto</a>
+      </div>
+
+      <div>
+        <h4>Projeto</h4>
+        <a href="#projeto">Sobre</a>
+        <a href="#contato">Contato</a>
+        <a href="#inicio">Voltar ao topo</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 EcoMapa. Projeto acadêmico desenvolvido para fins educacionais.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    ↑
+  </button>
+
+  <div class="toast" id="toast">
+    <span>✅</span>
+    <p>Interesse enviado com sucesso!</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
